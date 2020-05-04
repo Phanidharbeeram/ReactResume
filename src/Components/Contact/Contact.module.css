@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.h1c{
+    margin: 20px ;
+    text-transform: capitalize;
+    font-family: 'Times New Roman', Times, serif;
+}

@@ -7,6 +7,7 @@ import Navbar from "./Components/NavBar/Navbar";
 import Education from "./Components/Education/Education";
 import TechnicalSkills from "./Components/TechnicalSkills/TechnicalSkills";
 import Contact from "./Components/Contact/Contact";
+import NotFound from "./Components/NotFound/NotFound";
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
         <Route path="/eduQualifications" component={Education} />
         <Route path="/techSkills" component={TechnicalSkills} />
         <Route path="/Contact" component={Contact} />
+        <Route component={NotFound}/>
       </Switch>
     </div>
   );
