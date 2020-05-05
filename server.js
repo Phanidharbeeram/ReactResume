@@ -15,7 +15,8 @@ app.use(cors());
 app.use(morgan("common"));
 app.use(compression());
 Mongoose.connect(
-  "mongodb+srv://PhanidharBeeram:Phani12zebra@heroku-y2fob.mongodb.net/test?retryWrites=true&w=majority",
+  process.env.MongoDB ||
+    "mongodb+srv://PhanidharBeeram:Phani12zebra@heroku-y2fob.mongodb.net/test?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
