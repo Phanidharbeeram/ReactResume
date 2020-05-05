@@ -5,29 +5,36 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const port = process.env.PORT || 4000;
 const Login = require("./Login");
-const Mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const morgan = require("morgan");
 const compression = require("compression");
+const mongoDB_Atlas =
+  "mongodb+srv://PhanidharBeeram:Phani12zebra@heroku-y2fob.mongodb.net/test?retryWrites=true&w=majority";
+const mLab =
+  "mongodb://Phanidharbeeram:949297920413s@ds259175.mlab.com:59175/heroku_qh474hv5";
 app.use(express.static("./build"));
 
 app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan("common"));
 app.use(compression());
-Mongoose.connect(
-  process.env.MongoDB ||
-    "mongodb+srv://PhanidharBeeram:Phani12zebra@heroku-y2fob.mongodb.net/test?retryWrites=true&w=majority" ||
-    "mongodb://Phanidharbeeram:9492979204@1#s@ds259175.mlab.com:59175/heroku_qh474hv5",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 15000,
-  }
-);
+mongoose.connect(mLab, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 15000,
+});
+mongoose.connection.on("connected",()=> {
+  console.log("Mongoose default connection is open to ", mLab)
+});
 
-// Mongoose.connection((req,res)=>{
-//     console.log('MongoDb Connected')
-// })
+mongoose.connection.on("error", function (err) {
+  console.log("Mongoose default connection has occured " + err + " error");
+});
+
+mongoose.connection.on("disconnected", function () {
+  console.log("Mongoose default connection is disconnected")
+});
+
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
