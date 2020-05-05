@@ -16,7 +16,8 @@ app.use(morgan("common"));
 app.use(compression());
 Mongoose.connect(
   process.env.MongoDB ||
-    "mongodb+srv://PhanidharBeeram:Phani12zebra@heroku-y2fob.mongodb.net/test?retryWrites=true&w=majority",
+    "mongodb+srv://PhanidharBeeram:Phani12zebra@heroku-y2fob.mongodb.net/test?retryWrites=true&w=majority" ||
+    "mongodb://Phanidharbeeram:9492979204@1#s@ds259175.mlab.com:59175/heroku_qh474hv5",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
