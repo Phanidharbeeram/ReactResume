@@ -18,13 +18,13 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan("common"));
 app.use(compression());
-mongoose.connect(mLab, {
+mongoose.connect(mongoDB_Atlas, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 15000,
 });
 mongoose.connection.on("connected",()=> {
-  console.log("Mongoose default connection is open to ", mLab)
+  console.log("Mongoose default connection is open to ", mongoDB_Atlas)
 });
 
 mongoose.connection.on("error", function (err) {
