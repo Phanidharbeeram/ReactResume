@@ -9,7 +9,8 @@ const useStyles = makeStyles({
   root: {
     height: 300,
     width: 275,
-    background: "linear-gradient(45deg,rgb(204,43,94,0.9) , rgb(117,58,136,0.5))",
+    background:
+      "linear-gradient(45deg,rgb(204,43,94,0.9) , rgb(117,58,136,0.5))",
     marginBottom: "10px",
   },
 
@@ -29,13 +30,7 @@ export default function OutlinedCard({ skill }) {
           color="textSecondary"
           gutterBottom
         >
-          <img
-            height="230px"
-            width="235px"
-            borderRadius="4px"
-            src={skill.url}
-            alt={skill.name}
-          />
+          <img height="230px" width="235px" src={skill.url} alt={skill.name} />
         </Typography>
         <Typography variant="h5" component="h2">
           {skill.name}

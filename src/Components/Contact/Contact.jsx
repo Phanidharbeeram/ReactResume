@@ -41,8 +41,8 @@ function Contact() {
     <React.Fragment>
       <h1 className={style.h1c}>contact page</h1>
       <div className={style.main}>
-        {contactlinks.map((link) => (
-          <SimpleCard link={link} />
+        {contactlinks.map((link,i) => (
+          <SimpleCard key={i} link={link} />
         ))}
       </div>
     </React.Fragment>

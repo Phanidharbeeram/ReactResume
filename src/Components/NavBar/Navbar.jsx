@@ -15,9 +15,9 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title:{
-    color:"white"
-  }
+  title: {
+    color: "white",
+  },
 }));
 
 export default function Navbar() {
@@ -47,6 +47,8 @@ export default function Navbar() {
             <NavLink activeClassName="current" to="/Contact">
               Contact me
             </NavLink>
+
+            <NavLink to="/login">Login</NavLink>
           </Typography>
         </Toolbar>
       </AppBar>

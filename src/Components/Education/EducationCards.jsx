@@ -39,9 +39,9 @@ export default function SimpleCard({ link }) {
               {link.mail} <br />
               <a href={link.url}>Officail Site</a>
             </span>
-            <p>Percentage: {link.percentage}</p>
+            Percentage: {link.percentage}
             <br />
-            <p>Course:{link.branch}</p>
+            Course:{link.branch}
             <br />
             <a href={link.location}>
               <i className="fas fa-search-location"></i>

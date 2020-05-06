@@ -40,16 +40,15 @@ export default function Education() {
     <div>
       <h1>Educational Details Page</h1>
       <div
-
-      style={{
-        display: "flex",
-        justifyContent: "space-evenly",
-        flexWrap: "wrap",
-      }}
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          flexWrap: "wrap",
+        }}
       >
-        {" "}
-        {education.map((link) => (
-          <li style={{ listStyleType: "none" }}>
+      
+        {education.map((link, i) => (
+          <li key={i} style={{ listStyleType: "none" }}>
             <SimpleCard link={link} />
           </li>
         ))}
