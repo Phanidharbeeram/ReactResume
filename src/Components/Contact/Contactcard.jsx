@@ -6,12 +6,17 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 275,
+    marginTop:4,
+    maxWidth: 250,
+    maxHeight:170,
     boxShadow: "5px 10px  #888888",
     border: "1px solid black",
   },
   title: {
-    fontSize: 25,
+    fontSize: 15,
+  },
+  img: {
+    width: "50px",
   },
 });
 
@@ -28,11 +33,11 @@ export default function SimpleCard({ link }) {
             gutterBottom
           >
             <a href={link.url}>
-              <img widht="250px" height="150px" src={link.img} alt="logos" />
+              <img className={classes.img} src={link.img} alt="logos" />
             </a>
             <br />
             {link.name} <br />
-            <span style={{ fontSize: 16 }}>
+            <span>
               {link.mail} <br />
               <a href={link.url}>{link.name}</a>
             </span>

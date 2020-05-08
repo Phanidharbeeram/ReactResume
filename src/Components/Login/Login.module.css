@@ -1,0 +1,11 @@
+.in {
+  width: 60%;
+  font-size: 25px;
+  font-family: "Times New Roman", Times, serif;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 1.5rem;
+}
+.labelki {
+  font-size: 30px;
+}

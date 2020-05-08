@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import SimpleCard from "./Contactcard";
 import style from "./Contact.module.css";
+import axios from "axios";
 function Contact() {
+  const [comment, setcomment] = useState({
+    email: "",
+    comment: "",
+  });
   const [contactlinks] = useState([
     {
       name: `Mobile Number`,
@@ -36,15 +41,50 @@ function Contact() {
         "https://cdn.iconscout.com/icon/free/png-512/facebook-logo-2019-1597680-1350125.png",
     },
   ]);
-
+  const addComment = (e) => {
+    e.preventDefault();
+    console.log(comment);
+    axios
+      .post("http://localhost:4000/comment", comment)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+  const changetracker = (e) => {
+    setcomment({ ...comment, [e.target.name]: e.target.value });
+  };
   return (
     <React.Fragment>
       <h1 className={style.h1c}>contact page</h1>
-      <div className={style.main}>
-        {contactlinks.map((link,i) => (
-          <SimpleCard key={i} link={link} />
-        ))}
-      </div>
+      <div className={style.mam}>
+        <div className={style.main}>
+          {contactlinks.map((link, i) => (
+            <SimpleCard key={i} link={link} />
+          ))}
+        </div>
+        <div className={style.form}>
+          <form onSubmit={addComment}>
+            <label htmlFor="email">Enter Your Email:</label>
+            <br />
+            <input
+              type="text"
+              name="email"
+              className={style.in}
+              placeholder="Enter Your Email"
+              onChange={changetracker}
+            />{" "}
+            <br />
+            <label htmlFor="Comment">Comment</label> <br />
+            <textarea
+              name="comment"
+              cols="30"
+              rows="10"
+              onChange={changetracker}
+            ></textarea>{" "}
+            <br />
+            <button type="submit">Submit Comment</button>{" "}
+          </form>
+        </div>
+      </div>{" "}
     </React.Fragment>
   );
 }

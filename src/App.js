@@ -1,5 +1,4 @@
 import React from "react";
-//import logo from "./logo.svg";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Homepage from "./Components/Homepage/Homepage";
@@ -14,15 +13,14 @@ function App() {
     <div className="App">
       <Navbar />
       <Switch>
-        <Route exact path="/" component={Homepage}></Route>
+        <Route exact path="/" component={Homepage} />
         <Route path="/eduQualifications" component={Education} />
         <Route path="/techSkills" component={TechnicalSkills} />
         <Route path="/Contact" component={Contact} />
-        <Route path="/login" component={Login}/>
-        <Route component={NotFound}/>
+        <Route path="/login" component={Login} />
+        <Route component={NotFound} />
       </Switch>
     </div>
   );
 }
-
 export default App;

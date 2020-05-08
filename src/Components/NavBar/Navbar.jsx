@@ -14,9 +14,12 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    color: "white",
   },
   title: {
-    color: "white",
+    color: "whitesmoke",
+    textDecoration: "none",
+    marginRight: "25px",
   },
 }));
 
@@ -27,28 +30,39 @@ export default function Navbar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
+          <IconButton edge="start" className={classes.menuButton}>
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            <NavLink to="/">Material_UI-HOme</NavLink>
-            <NavLink activeClassName="current" to="/eduQualifications">
-              Education
+          <Typography variant="h6" noWrap>
+            <NavLink className={classes.title} to="/">
+              HOME
+            </NavLink>
+            <NavLink
+              className={classes.title}
+              activeClassName="current"
+              to="/eduQualifications"
+            >
+              EDUCATION
             </NavLink>
 
-            <NavLink activeClassName="current" to="/techSkills">
-              Technical Skills
+            <NavLink
+              className={classes.title}
+              activeClassName="current"
+              to="/techSkills"
+            >
+              TECHNICAL SKILLS
             </NavLink>
-            <NavLink activeClassName="current" to="/Contact">
-              Contact me
+            <NavLink
+              className={classes.title}
+              activeClassName="current"
+              to="/Contact"
+            >
+              CONTACT ME
             </NavLink>
 
-            <NavLink to="/login">Login</NavLink>
+            <NavLink className={classes.title} to="/login">
+              LOGIN
+            </NavLink>
           </Typography>
         </Toolbar>
       </AppBar>

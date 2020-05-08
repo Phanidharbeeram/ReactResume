@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Axios from "axios";
-
+import style from "./Login.module.css";
 function Login() {
   const [formData, setformData] = useState({
     email: "",
@@ -8,7 +8,7 @@ function Login() {
   });
   const submitHandler = (e) => {
     e.preventDefault();
-    Axios.post("/login", formData)
+    Axios.post("http://localhost:4000/login", formData)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -18,11 +18,24 @@ function Login() {
   return (
     <div>
       <form onSubmit={submitHandler}>
-        <label htmlFor="email">Email</label>
-        <input type="text" onChange={changeHandler} name="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" onChange={changeHandler} name="password" />
-        <button type="submit">Submit</button>
+        <label className={style.labelki} htmlFor="email">Email:</label>
+        <br />
+        <input
+          type="text"
+          className={style.in}
+          onChange={changeHandler}
+          name="email"
+        />{" "}
+        <br />
+        <label className={style.labelki} htmlFor="password">Password:</label> <br />
+        <input
+          type="password"
+          className={style.in}
+          onChange={changeHandler}
+          name="password"
+        />{" "}
+        <br />
+        <button className={style.in} type="submit">Submit</button>
       </form>
     </div>
   );
